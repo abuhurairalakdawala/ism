@@ -4,6 +4,10 @@
     <title>Indian Share Market - Documentation</title>
     <link rel="stylesheet" type="text/css" href="assets/css/materialize.min.css">
     <style type="text/css">
+        .content h3 {
+            font-size: 1.20rem;
+            font-weight: bold;
+        }
         #sidebar {
             border-right: 1px solid #cccccc;
             position: fixed;
@@ -20,6 +24,19 @@
             margin-left: 15px;
             margin-top: 15px;
         }
+        code {
+            background-color: #f6f8fa;
+            padding: 15px;
+            display: block;
+            border-radius: 4px;
+            cursor: default;
+        }
+        .table-of-contents a.active, .table-of-contents a:hover {
+            border-color: #3d5afe;
+        }
+        .scrollspy {
+            border-bottom: 1px solid #cccccc;
+        }
     </style>
 </head>
 <body>
@@ -27,30 +44,47 @@
     <div id="sidebar">
         <div id="sidebar-head">Table Of Contents</div>
         <ul class="table-of-contents">
-            <li><a href="#introduction">Equities</a></li>
-            <li><a href="#structure">Industries</a></li>
-            <li><a href="#initialization">Sectors</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#equities">Equities</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#sectors">Sectors</a></li>
+            <li><a href="#license">License</a></li>
         </ul>
     </div>
     <div class="body-content">
         <div class="row">
             <div class="col m12">
                 <h1>Indian Share Market - Documentation</h1>
+                    <a target="_blank" title="Packagist link" href="https://packagist.org/packages/abuhurairalakdawala/indian-share-market"><img src="https://poser.pugx.org/abuhurairalakdawala/indian-share-market/v/stable"></a>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row content">
             <div class="col s12">
-                <div id="introduction" class="scrollspy">
-                  <p>Equity</p>
+                <div id="installation" class="scrollspy">
+                    <h3># Installation</h3>
+                    <div class="details">
+                        <p>This package requires PHP7 to be installed on your system. There is no special requirement or dependencies to install this package.</p>
+                        <p>I recommend you to install this package using composer.</p>
+                        <code class="z-depth-1">composer require abuhurairalakdawala/indian-share-market</code>
+                        <!-- <img src="https://poser.pugx.org/abuhurairalakdawala/indian-share-market/license"> -->
+                    </div>
                 </div>
 
-                <div id="structure" class="scrollspy">
-                  <p>Industry</p>
+                <div id="equities" class="scrollspy">
+                    <h3># Equities</h3>
                 </div>
 
-                <div id="initialization" class="scrollspy">
-                  <p>Sector</p>
+                <div id="industries" class="scrollspy">
+                  <h3># Industry</h3>
+                </div>
+
+                <div id="sectors" class="scrollspy">
+                  <h3># Sector</h3>
+                </div>
+
+                <div id="license" class="scrollspy">
+                  <h3># License</h3>
                 </div>
             </div>
         </div>
