@@ -1,0 +1,42 @@
+[
+    {
+        "name": "abuhurairalakdawala/indian-share-market",
+        "version": "1.3",
+        "version_normalized": "1.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/abuhurairalakdawala/indian-share-market.git",
+            "reference": "a34ce66fd5482951cac2ccd6f6a6abeb33d8e9b0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/abuhurairalakdawala/indian-share-market/zipball/a34ce66fd5482951cac2ccd6f6a6abeb33d8e9b0",
+            "reference": "a34ce66fd5482951cac2ccd6f6a6abeb33d8e9b0",
+            "shasum": ""
+        },
+        "time": "2019-02-19T10:40:07+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "IndianShareMarket\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Abuhuraira Lakdawala",
+                "email": "abu2602@gmail.com"
+            }
+        ],
+        "keywords": [
+            "bse",
+            "nifty",
+            "nse",
+            "sensex"
+        ]
+    }
+]
