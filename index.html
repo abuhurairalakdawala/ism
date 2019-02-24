@@ -33,17 +33,28 @@
             margin-bottom: 15px;
             white-space: pre-line;
         }
+        code.formatted {
+            white-space: pre;
+        }
         .table-of-contents a.active, .table-of-contents a:hover {
             border-color: #3d5afe;
         }
         .scrollspy {
             border-bottom: 1px solid #cccccc;
         }
-        .highlight {
+        .highlight:not(table) {
             background-color: #eeeeee;
             cursor: default;
             border-radius: 4px;
             color: #1976D2;
+        }
+        table {
+            border: 1px solid rgba(0,0,0,0.12);
+            margin-bottom: 15px;
+        }
+        table th, table td {
+            border: 1px solid rgba(0,0,0,0.12);
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -124,9 +135,75 @@
                     <div class="details">
                         <code class="z-depth-1">$equities = $object->equities();
                         </code>
-                        <p>This function will load the data. Optionally, it accepts one parameter. The values it accepts are <span class="highlight">nse, bse and both</span>.<br>
+                        <p>This function will load the data and return the object of <span class="highlight">IndianShareMarket</span>. Optionally, it accepts one parameter.<br>
                         Currently we do not provide BSE stock list. It will throw an exception if you try to fetch BSE data.<br>
-                        Default value is <span class="highlight">both</span>.</p>
+                        To get the response with values you should call any one function as mentioned in basic usage.</p>
+                        <table>
+                            <tr><th>Item</th><th>Values</th></tr>
+                            <tr><td>Default value</td><td>both</td></tr>
+                            <tr><td>Accepted Param Values</td><td>nse, bse and both</td></tr>
+                            <tr><td>Return for<br><span class="highlight">$equities->array()</span></td><td>
+<code class="formatted">[
+    'nse' => [
+        'format' => 'array',
+        'data' => [
+            [
+                'symbol' => '20MICRONS',
+                'name_of_company' => '20 Microns Limited',
+                'series' => 'EQ',
+                'date_of_listing' => '06-OCT-2008',
+                'paid_up_value' => '5',
+                'market_lot' => 1,
+                'isin_number' => 'INE144J01027',
+                'face_value' => '5'
+            ],
+            [
+                'symbol' => '21STCENMGM',
+                'name_of_company' => '21st Century Management Services Limited',
+                'series' => 'EQ',
+                'date_of_listing' => '03-MAY-1995',
+                'paid_up_value' => '110',
+                'market_lot' => 1,
+                'isin_number' => 'INE253B01015',
+                'face_value' => '10'
+            ],
+            ...
+        ]
+    ]
+]</code>
+                            </td></tr>
+                            <tr><td>Return for<br><span class="highlight">$equities->json()</span></td><td>
+<code class="formatted">{
+    "nse":{
+        "format":"json",
+        "data":[
+            {
+                "symbol":"20MICRONS",
+                "name_of_company":"20 Microns Limited",
+                "series":"EQ",
+                "date_of_listing":"06-OCT-2008",
+                "paid_up_value":"5",
+                "market_lot":"1",
+                "isin_number":"INE144J01027",
+                "face_value":"5"
+            },
+            {
+                "symbol":"21STCENMGM",
+                "name_of_company":"21st Century Management Services Limited",
+                "series":"EQ",
+                "date_of_listing":"03-MAY-1995",
+                "paid_up_value":"10",
+                "market_lot":"1",
+                "isin_number":"INE253B01015",
+                "face_value":"10"
+            },
+            ...
+        ]
+    }
+}
+</code>
+                            </td></tr>
+                        </table>
                     </div>
                 </div>
 
@@ -135,8 +212,89 @@
                     <div class="details">
                         <code class="z-depth-1">$industries = $object->industries();
                         </code>
-                        <p>This function will load the data. Optionally, it accepts one parameter. The values it accepts are <span class="highlight">nse, bse and both</span>.<br>
-                        Default value is <span class="highlight">both</span>.</p>
+                        <p>This function will load the data and return the object of <span class="highlight">IndianShareMarket</span>. Optionally, it accepts one parameter.<br>
+                        To get the response with values you should call any one function as mentioned in basic usage.</p>
+                        <table>
+                            <tr><th>Item</th><th>Values</th></tr>
+                            <tr><td>Default value</td><td>both</td></tr>
+                            <tr><td>Accepted Param Values</td><td>nse, bse and both</td></tr>
+                            <tr><td>Return for<br><span class="highlight">$industries->array()</span></td><td>
+<code class="formatted">[
+    "nse" => [
+        "format" => "array",
+        "data" => [
+            [
+                "name" => "Abrasives"
+            ],
+            [
+                "name" => "Aluminium"
+            ],
+            [
+                "name" => "Aquaculture"
+            ],
+            [
+                "name" => "Auto - 2 & 3 Wheelers"
+            ],
+            ...
+        ]
+    ],
+    "bse" => [
+        "format" => "array",
+        "data" => [
+            [
+                "name" => "2\/3 Wheelers"
+            ],
+            [
+                "name" => "Advertising & Media"
+            ],
+            [
+                "name" => "Aerospace"
+            ],
+            ...
+        ]
+    ]
+]
+</code>
+                            </td></tr>
+                            <tr><td>Return for<br><span class="highlight">$industries->json()</span></td><td>
+<code class="formatted">{
+    "nse":{
+        "format":"json",
+        "data":[
+            {
+                "name":"Abrasives"
+            },
+            {
+                "name":"Aluminium"
+            },
+            {
+                "name":"Aquaculture"
+            },
+            {
+                "name":"Auto - 2 & 3 Wheelers"
+            },
+            ...
+        ]
+    },
+    "bse":{
+        "format":"json",
+        "data":[
+            {
+                "name":"2\/3 Wheelers"
+            },
+            {
+                "name":"Advertising & Media"
+            },
+            {
+                "name":"Aerospace"
+            },
+            ...
+        ]
+    }
+}
+</code>
+                            </td></tr>
+                        </table>
                     </div>
                 </div>
 
@@ -145,8 +303,191 @@
                     <div class="details">
                         <code class="z-depth-1">$sectors = $object->sectors();
                         </code>
-                        <p>This function will load the data. Optionally, it accepts one parameter. The values it accepts are <span class="highlight">nse, bse and both</span>.<br>
-                        Default value is <span class="highlight">both</span>.</p>
+                        <p>This function will load the data and return the object of <span class="highlight">IndianShareMarket</span>. Optionally, it accepts one parameter.<br>
+                        To get the response with values you should call any one function as mentioned in basic usage.</p>
+                        <table>
+                            <tr><th>Item</th><th>Values</th></tr>
+                            <tr><td>Default value</td><td>both</td></tr>
+                            <tr><td>Accepted Param Values</td><td>nse, bse and both</td></tr>
+                            <tr><td>Return for<br><span class="highlight">$sectors->array()</span></td><td>
+<code class="formatted">[
+    "nse" => [
+        "format" => "array",
+        "data" => [
+            [
+                "index_name" => "Nifty 50",
+                "index_date" => "22-02-2019",
+                "open_index_value" => "10782.7",
+                "high_index_value" => "10801.55",
+                "low_index_value" => "10758.4",
+                "closing_index_value" => "10791.65",
+                "points_change" => "1.8",
+                "change(%)" => ".02",
+                "volume" => "396846597",
+                "turnover_(rs._cr.)" => "24386.42",
+                "p/e" => "26.32",
+                "p/b" => "3.41",
+                "div_yield" => "1.25"
+            ],
+            [
+                "index_name" => "Nifty Next 50",
+                "index_date" => "22-02-2019",
+                "open_index_value" => "25930.2",
+                "high_index_value" => "26124",
+                "low_index_value" => "25867.35",
+                "closing_index_value" => "26097.55",
+                "points_change" => "200.6",
+                "change(%)" => ".77",
+                "volume" => "168739680",
+                "turnover_(rs._cr.)" => "3106.73",
+                "p/e" => "41",
+                "p/b" => "3.71",
+                "div_yield" => ".94"
+            ],
+            ...
+        ]
+    ],
+    "bse" => [
+        "format" => "json",
+        "data" => [
+            [
+                "ScripFlagCode" => 16,
+                "INDX_CD" => "BSE30  ",
+                "IndexName" => "S&P BSE SENSEX",
+                "I_open" => 35906.01,
+                "High" => 35941.69,
+                "Low" => 35795.79,
+                "Curvalue" => 35871.48,
+                "Prev_Close" => 35898.35,
+                "Chg" => -26.87,
+                "ChgPer" => -0.07,
+                "Week52High" => 38989.65,
+                "Week52Low" => 32483.84,
+                "MKTCAP" => 6430398.06,
+                "MktcapPerc" => 47.48,
+                "NET_TURN" => 1293.8,
+                "TurnoverPerc" => 47.93,
+                "DT_TM" => "2019-02-22T16:00:00",
+                "Ind_Cat" => 100,
+                "IndCateGoryIndex" => "Broad"
+            ],
+            [
+                "ScripFlagCode" => 81,
+                "INDX_CD" => "MIDCAP ",
+                "IndexName" => "S&P BSE MidCap",
+                "I_open" => 14132.67,
+                "High" => 14183.89,
+                "Low" => 14097.79,
+                "Curvalue" => 14169.74,
+                "Prev_Close" => 14115.65,
+                "Chg" => 54.09,
+                "ChgPer" => 0.38,
+                "Week52High" => 17059.37,
+                "Week52Low" => 13538.62,
+                "MKTCAP" => 1831764.88,
+                "MktcapPerc" => 13.52,
+                "NET_TURN" => 357.97,
+                "TurnoverPerc" => 13.26,
+                "DT_TM" => "2019-02-22T16:00:00",
+                "Ind_Cat" => 100,
+                "IndCateGoryIndex" => "Broad"
+            ],
+            ...
+        ]
+    ]
+]
+</code>
+                            </td></tr>
+                            <tr><td>Return for<br><span class="highlight">$sectors->json()</span></td><td>
+<code class="formatted">{
+    "nse":{
+        "format":"json",
+        "data":[
+            {
+                "index_name":"Nifty 50",
+                "index_date":"22-02-2019",
+                "open_index_value":"10782.7",
+                "high_index_value":"10801.55",
+                "low_index_value":"10758.4",
+                "closing_index_value":"10791.65",
+                "points_change":"1.8",
+                "change(%)":".02",
+                "volume":"396846597",
+                "turnover_(rs._cr.)":"24386.42",
+                "p\/e":"26.32",
+                "p\/b":"3.41",
+                "div_yield":"1.25\r"
+            },
+            {
+                "index_name":"Nifty Next 50",
+                "index_date":"22-02-2019",
+                "open_index_value":"25930.2",
+                "high_index_value":"26124",
+                "low_index_value":"25867.35",
+                "closing_index_value":"26097.55",
+                "points_change":"200.6",
+                "change(%)":".77",
+                "volume":"168739680",
+                "turnover_(rs._cr.)":"3106.73",
+                "p\/e":"41",
+                "p\/b":"3.71",
+                "div_yield":".94\r"
+            },
+            ...
+        ]
+    },
+    "bse":{
+        "format":"json",
+        "data":[
+            {
+                "ScripFlagCode":16,
+                "INDX_CD":"BSE30  ",
+                "IndexName":"S&P BSE SENSEX",
+                "I_open":35906.01,
+                "High":35941.69,
+                "Low":35795.79,
+                "Curvalue":35871.48,
+                "Prev_Close":35898.35,
+                "Chg":-26.87,
+                "ChgPer":-0.07,
+                "Week52High":38989.65,
+                "Week52Low":32483.84,
+                "MKTCAP":6430398.06,
+                "MktcapPerc":47.48,
+                "NET_TURN":1293.8,
+                "TurnoverPerc":47.93,
+                "DT_TM":"2019-02-22T16:00:00",
+                "Ind_Cat":100,
+                "IndCateGoryIndex":"Broad"
+            },
+            {
+                "ScripFlagCode":81,
+                "INDX_CD":"MIDCAP ",
+                "IndexName":"S&P BSE MidCap",
+                "I_open":14132.67,
+                "High":14183.89,
+                "Low":14097.79,
+                "Curvalue":14169.74,
+                "Prev_Close":14115.65,
+                "Chg":54.09,
+                "ChgPer":0.38,
+                "Week52High":17059.37,
+                "Week52Low":13538.62,
+                "MKTCAP":1831764.88,
+                "MktcapPerc":13.52,
+                "NET_TURN":357.97,
+                "TurnoverPerc":13.26,
+                "DT_TM":"2019-02-22T16:00:00",
+                "Ind_Cat":100,
+                "IndCateGoryIndex":"Broad"
+            },
+            ...
+        ]
+    }
+}
+</code>
+                            </td></tr>
+                        </table>
                     </div>
                 </div>
 
