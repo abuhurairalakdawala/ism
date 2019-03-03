@@ -56,6 +56,9 @@
             border: 1px solid rgba(0,0,0,0.12);
             margin-bottom: 15px;
         }
+        .details table td {
+            vertical-align: top;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +72,7 @@
             <li><a href="#equities">Equity</a></li>
             <li><a href="#industries">Industries</a></li>
             <li><a href="#sectors">Sectors</a></li>
+            <li><a href="#realtime">Realtime Quotes</a></li>
             <li><a href="#license">The MIT License (MIT)</a></li>
         </ul>
     </div>
@@ -483,6 +487,216 @@
             },
             ...
         ]
+    }
+}
+</code>
+                            </td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="realtime" class="scrollspy">
+                    <h3># Realtime Quotes</h3>
+                    <div class="details">
+                        <p>To retrieve realtime or day end stock price from NSE / BSE, you should call the following function:</p>
+                        <code class="z-depth-1">$getQuote = $object->getQuote('nse', 'INFY');
+                        </code>
+                        <code class="z-depth-1">$getQuote = $object->getQuote('bse', '500209');
+                        </code>
+                        <p>This function will load the data and return the object of <span class="highlight">IndianShareMarket</span>. It accepts two parameter.<br>
+                        To get the response with values you should call any one function as mentioned in basic usage.</p>
+                        <table>
+                            <tr><th>Item</th><th>Values (for nse)</th></tr>
+                            <tr><td>Return for<br><span class="highlight">$getQuote->array()</span></td><td>
+<code class="formatted">[
+    "nse" => [
+        "format" => "array",
+        "data" => [
+            "pricebandupper" => "807.70",
+            "symbol" => "INFY",
+            "applicableMargin" => "12.50",
+            "bcEndDate" => "-",
+            "totalSellQuantity" => "762",
+            "adhocMargin" => "-",
+            "companyName" => "Infosys Limited",
+            "marketType" => "N",
+            "exDate" => "24-JAN-19",
+            "bcStartDate" => "-",
+            "css_status_desc" => "Listed",
+            "dayHigh" => "743.40",
+            "basePrice" => "734.30",
+            "securityVar" => "4.95",
+            "pricebandlower" => "660.90",
+            "sellQuantity5" => "-",
+            "sellQuantity4" => "-",
+            "sellQuantity3" => "-",
+            "cm_adj_high_dt" => "08-FEB-19",
+            "sellQuantity2" => "-",
+            "dayLow" => "735.50",
+            "sellQuantity1" => "762",
+            "quantityTraded" => "39,98,826",
+            "pChange" => "1.02",
+            "totalTradedValue" => "29,590.91",
+            "deliveryToTradedQuantity" => "53.56",
+            "totalBuyQuantity" => "-",
+            "averagePrice" => "739.99",
+            "indexVar" => "-",
+            "cm_ffm" => "2,81,972.93",
+            "purpose" => "SPECIAL DIVIDEND - RS 4 PER SHARE",
+            "buyPrice2" => "-",
+            "secDate" => "01-Mar-2019 00 => 00 => 00",
+            "buyPrice1" => "-",
+            "high52" => "772.25",
+            "previousClose" => "734.30",
+            "ndEndDate" => "-",
+            "low52" => "551.00",
+            "buyPrice4" => "-",
+            "buyPrice3" => "-",
+            "recordDate" => "25-JAN-19",
+            "deliveryQuantity" => "21,41,670",
+            "buyPrice5" => "-",
+            "priceBand" => "No Band",
+            "extremeLossMargin" => "5.00",
+            "cm_adj_low_dt" => "16-APR-18",
+            "varMargin" => "7.50",
+            "sellPrice1" => "741.90",
+            "sellPrice2" => "-",
+            "totalTradedVolume" => "39,98,826",
+            "sellPrice3" => "-",
+            "sellPrice4" => "-",
+            "sellPrice5" => "-",
+            "change" => "7.50",
+            "surv_indicator" => "-",
+            "ndStartDate" => "-",
+            "buyQuantity4" => "-",
+            "buyQuantity3" => "-",
+            "buyQuantity2" => "-",
+            "buyQuantity1" => "-",
+            "series" => "EQ",
+            "faceValue" => "5.00",
+            "buyQuantity5" => "-",
+            "closePrice" => "741.90",
+            "open" => "735.50",
+            "isinCode" => "INE009A01021",
+            "lastPrice" => "741.80"
+        ]
+    ]
+]
+</code>
+                            </td></tr>
+                            <tr><td>Return for<br><span class="highlight">$getQuote->json()</span></td><td>
+<code class="formatted">{
+    "nse":{
+        "format":"json",
+        "data":{
+            "pricebandupper":"807.70",
+            "symbol":"INFY",
+            "applicableMargin":"12.50",
+            "bcEndDate":"-",
+            "totalSellQuantity":"762",
+            "adhocMargin":"-",
+            "companyName":"Infosys Limited",
+            "marketType":"N",
+            "exDate":"24-JAN-19",
+            "bcStartDate":"-",
+            "css_status_desc":"Listed",
+            "dayHigh":"743.40",
+            "basePrice":"734.30",
+            "securityVar":"4.95",
+            "pricebandlower":"660.90",
+            "sellQuantity5":"-",
+            "sellQuantity4":"-",
+            "sellQuantity3":"-",
+            "cm_adj_high_dt":"08-FEB-19",
+            "sellQuantity2":"-",
+            "dayLow":"735.50",
+            "sellQuantity1":"762",
+            "quantityTraded":"39,98,826",
+            "pChange":"1.02",
+            "totalTradedValue":"29,590.91",
+            "deliveryToTradedQuantity":"53.56",
+            "totalBuyQuantity":"-",
+            "averagePrice":"739.99",
+            "indexVar":"-",
+            "cm_ffm":"2,81,972.93",
+            "purpose":"SPECIAL DIVIDEND - RS 4 PER SHARE",
+            "buyPrice2":"-",
+            "secDate":"01-Mar-2019 00:00:00",
+            "buyPrice1":"-",
+            "high52":"772.25",
+            "previousClose":"734.30",
+            "ndEndDate":"-",
+            "low52":"551.00",
+            "buyPrice4":"-",
+            "buyPrice3":"-",
+            "recordDate":"25-JAN-19",
+            "deliveryQuantity":"21,41,670",
+            "buyPrice5":"-",
+            "priceBand":"No Band",
+            "extremeLossMargin":"5.00",
+            "cm_adj_low_dt":"16-APR-18",
+            "varMargin":"7.50",
+            "sellPrice1":"741.90",
+            "sellPrice2":"-",
+            "totalTradedVolume":"39,98,826",
+            "sellPrice3":"-",
+            "sellPrice4":"-",
+            "sellPrice5":"-",
+            "change":"7.50",
+            "surv_indicator":"-",
+            "ndStartDate":"-",
+            "buyQuantity4":"-",
+            "buyQuantity3":"-",
+            "buyQuantity2":"-",
+            "buyQuantity1":"-",
+            "series":"EQ",
+            "faceValue":"5.00",
+            "buyQuantity5":"-",
+            "closePrice":"741.90",
+            "open":"735.50",
+            "isinCode":"INE009A01021",
+            "lastPrice":"741.80"
+        }
+    }
+}
+</code>
+                            </td></tr>
+                        </table>
+
+                        <table>
+                            <tr><th>Item</th><th>Values (for bse)</th></tr>
+                            <tr><td>Return for<br><span class="highlight">$getQuote->array()</span></td><td>
+<code class="formatted">[
+    "bse" => [
+        "format" => "array",
+        "data" => [
+            "CurrDate" => "Fri Mar 01 2019 16 => 00 => 02",
+            "PrevClose" => "733.95",
+            "LowVal" => "730",
+            "HighVal" => "745",
+            "Scripname" => "INFY",
+            "CurrVal" => "741.15",
+            "CurrTime" => "16 => 00",
+            "HighVol" => "100000"
+        ]
+    ]
+]
+</code>
+                            </td></tr>
+                            <tr><td>Return for<br><span class="highlight">$getQuote->json()</span></td><td>
+<code class="formatted">{
+    "bse":{
+        "format":"json",
+        "data":{
+            "CurrDate":"Fri Mar 01 2019 16:00:02",
+            "PrevClose":"733.95",
+            "LowVal":"730",
+            "HighVal":"745",
+            "Scripname":"INFY",
+            "CurrVal":"741.15",
+            "CurrTime":"16:00",
+            "HighVol":"100000"
+        }
     }
 }
 </code>
